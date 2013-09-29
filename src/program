@@ -1,0 +1,3 @@
+#!/bin/bash
+
+~/src/jtag_ftdi/jtag_ftdi ../main.bin

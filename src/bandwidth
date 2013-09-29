@@ -1,0 +1,19 @@
+#!/bin/bash
+
+tx_bytes=$(cat /sys/class/net/eth0/statistics/tx_bytes)
+rx_bytes=$(cat /sys/class/net/eth0/statistics/rx_bytes)
+
+while /bin/true; do
+	tx_bytes_last=$tx_bytes
+	rx_bytes_last=$rx_bytes
+
+	tx_bytes=$(cat /sys/class/net/eth0/statistics/tx_bytes)
+	rx_bytes=$(cat /sys/class/net/eth0/statistics/rx_bytes)
+
+	tx_kb=$(( ( $tx_bytes - $tx_bytes_last ) / 2048 ))
+	rx_kb=$(( ( $rx_bytes - $rx_bytes_last ) / 2048 ))
+	
+	echo "tx: $tx_kb KB/s rx: $rx_kb KB/s"
+	
+	sleep 2
+done
