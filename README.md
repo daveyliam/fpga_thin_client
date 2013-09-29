@@ -17,3 +17,7 @@ The 'src' directory contains the C code for the QEMU modification and also
 a short program to send raw frames to the FPGA for testing.
 
 The 'vlog' directory contains the Verilog code for the FPGA hardware design.
+Note that the DDR2 controller is missing, it was generated automatically
+by ISE and contained a lot of non editable .ncd files.
+
+I can provide the complete Xilinx ISE project if anyone is interested.
